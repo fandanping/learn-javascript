@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box .item {
+            width: 200px;
+            height: 250px;
+            margin: 0 15px 15px 0;
+            vertical-align: top;
+        }
+
+        #box {
+            position: relative;
+        }
+
+        #box .item img {
+            width: 100%;
+            height: 180px;
+            display: block;
+        }
+
+        #box .desc {
+            background-color: #cccccc;
+        }
+
+    </style>
+</head>
+<body>
+<div id="top">
+    <button>显示3列</button>
+    <button>显示4列</button>
+    <button>显示5列</button>
+</div>
+<div id="box">
+
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="images/1.jpg">
+        <div class="desc">
+            <p>标题</p>
+            <p>内容</p>
+        </div>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var btn = document.getElementById("top").children;
+        var box = document.getElementById("box");
+
+        btn[0].onclick = function () {
+            boxFun(3,box);
+        }
+        btn[1].onclick = function () {
+            boxFun(4,box);
+        }
+        btn[2].onclick = function () {
+            boxFun(5,box);
+        }
+
+        function boxFun(col,box){
+            var boxw = 200, boxH = 250, marginXY = 15;
+            for (var i = 0; i < box.children.length; i++) {
+                var row = parseInt(i / col);
+                var cols = parseInt(i % col);
+                //定位
+                var currentBox = box.children[i];
+                currentBox.style.position = 'absolute';
+                currentBox.style.left = (cols * boxw + cols * marginXY) + 'px';
+                currentBox.style.top = (row * boxH + row * marginXY) + 'px';
+            }
+        }
+    }
+</script>
+</body>
+</html>

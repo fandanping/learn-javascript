@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+   *{
+       margin:0;
+       padding:0;
+       list-style: none;
+       vertical-align: top;
+   }
+   body{
+       background-image: url("./images/1.jpg");
+       background-repeat: no-repeat;
+       background-size: cover;
+   }
+   #box{
+       background-color: rgba(255,255,255,0.5);
+   }
+   #box ul li img{
+       width:180px;
+       height:120px;
+   }
+   #box ul{
+       display: flex;
+       justify-content: space-around;
+       align-items: center;
+
+   }
+   #box ul li{
+       margin:10px 0;
+   }
+</style>
+<body>
+<div id="box">
+    <ul>
+        <li>
+            <img src="images/1.jpg">
+        </li>
+        <li>
+            <img src="images/2.jpg">
+        </li>
+        <li>
+            <img src="images/3.jpg">
+        </li>
+        <li>
+            <img src="images/4.jpg">
+        </li>
+        <li>
+            <img src="images/5.jpg">
+        </li>
+    </ul>
+</div>
+<script>
+    var box=document.getElementById("box");
+    var liList=box.getElementsByTagName("li");
+    console.log(liList);
+    for(var i=0;i<liList.length;i++){
+        liList[i].index=i+1;
+        liList[i].onclick=function(){
+            console.log(this.index);
+            document.body.style.backgroundImage='url("./images/' + this.index + '.jpg")';
+        }
+    }
+
+</script>
+</body>
+</html>

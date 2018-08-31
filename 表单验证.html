@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+.form .right{
+    color:lawngreen;
+}
+.form .error{
+    color:red;
+}
+.form input{
+    outline: 0;
+}
+</style>
+<body>
+<form class="form">
+    <label>请输入你的成绩:</label>
+    <input type="text" id="score">
+    <span id="tips">请输入你的成绩</span>
+</form>
+<script>
+    window.onload=function () {
+        // var tip=document.getElementById("tips");
+       //  var scoreNode=document.getElementById("score");
+         //console.log(score);
+        $("score").onblur=function(){
+            var score=parseFloat($("score").value);
+            if(isNaN(score)){
+                $("tips").innerText="你输入的不正确";
+                $("score").style.border="1px solid red";
+                $("tips").className="error";
+            }else if(score>=0 && score<=100){
+                $("tips").innerText="你输入正确";
+                $("score").style.border="1px solid lawngreen";
+                $("tips").className="right";
+            }else{
+                $("tips").innerText="你输入的超出了范围";
+                $("tips").className="";
+                $("score").style.border="1px solid red";
+                $("tips").className="error";
+            }
+        }
+        $("score").onfocus=function () {
+            $("score").value="";
+            $("score").style.border="1px solid grey";
+            $("tips").innerText="请输入你的成绩";
+        }
+
+
+        //抽取公共
+        function $(id){
+            return typeof id === "string" ? document.getElementById(id):null;
+        }
+    }
+
+
+</script>
+</body>
+</html>

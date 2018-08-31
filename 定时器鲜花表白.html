@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器鲜花表白</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            text-align: center;
+        }
+
+        #time {
+            font-size: 100px;
+            color:red;
+        }
+        .fower{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div id="time">5</div>
+    <div class="fower" id="flow">
+        <img src="images/鲜花.gif">
+    </div>
+</div>
+<script>
+window.onload=function(){
+    function time(){
+        var val=$("time").innerText;
+         if(parseInt(val) === 0){
+             $("time").style.display="none";
+             $("flow").style.display="block";
+             clearInterval(inter);
+             return;
+         }
+        $("time").innerText=parseInt(val)-1;
+    }
+
+    var inter=setInterval(time,1000);
+}
+
+//抽取公共
+function $(id) {
+    return typeof id === "string" ? document.getElementById(id) : null;
+}
+</script>
+</body>
+</html>

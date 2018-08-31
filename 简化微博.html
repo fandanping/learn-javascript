@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        .comment {
+            border: 1px solid lightblue;
+            width: 600px;
+            height: 500px;
+            margin: 100px auto;
+            padding: 10px;
+        }
+
+        .comment-main {
+            padding: 10px;
+        / / border: 1 px solid lightblue;
+        }
+
+        .comment-main textarea {
+
+        }
+
+        #publish-btn {
+            width: 100px;
+        }
+
+        .comment-content ul li {
+            border-bottom: 1px solid lightgray;
+        }
+
+        .comment-content ul li button {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="comment">
+    <h3>评论</h3>
+
+    <div class="comment-main">
+        <textarea rows="10" cols="70" id="input"></textarea>
+        <div>
+            <button id="publish-btn">发布</button>
+        </div>
+        <div class="comment-content">
+            <ul id="commmentList">
+                <!--<li class="item">
+                    <span>haah</span> <button class="">删除</button>
+                </li>
+                <li>
+                    <span>haah</span> <button class="">删除</button>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+
+</div>
+<script>
+    window.onload = function () {
+        $("publish-btn").onclick = function () {
+            var content = $("input").value;
+            if(content.trim().length=== 0){
+                alert("请输入");
+               return;
+            }
+            var element = document.createElement("li");
+            element.className = "item";
+            var span = document.createElement("span");
+            span.innerText = content;
+            var btn = document.createElement("button");
+            btn.className = "delete-btn";
+            btn.innerText = "删除";
+            element.appendChild(span);
+            element.appendChild(btn);
+            $("commmentList").insertBefore(element,$("commmentList").children[0]);
+            $("input").value = " ";
+
+            var delBtnList = document.getElementsByClassName("delete-btn");
+            for(var i=0;i<delBtnList.length;i++){
+                var button=delBtnList[i];
+                button.onclick = function () {
+                    alert("1");
+                    console.log(this.parentNode);
+                    this.parentNode.remove();
+                }
+            }
+        }
+
+
+    }
+
+    //抽取公共
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

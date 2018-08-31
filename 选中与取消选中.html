@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  *{
+      padding:0;
+      margin:0;
+      list-style: none;
+      box-sizing: border-box;
+  }
+    .panel{
+        width:400px;
+        height:400px;
+        margin:0 auto;
+        background-color: darkcyan;
+        padding:20px;
+    }
+  .panel-header{
+
+  }
+    .panel .panel-header,.panel-footer{
+        text-align: center;
+    }
+    .panel .panel-content ul li span{
+        margin-left: 20px;
+    }
+</style>
+<body>
+  <div class="panel">
+      <div class="panel-header">
+           <h3>歌曲排行榜</h3>
+      </div>
+      <div class="panel-content">
+          <ul>
+              <li>
+                  <input type="checkbox"><span>情非得已</span>
+              </li>
+              <li>
+                  <input type="checkbox"><span>永不磨灭的音符</span>
+              </li>
+              <li>
+                  <input type="checkbox"><span>夏天的风</span>
+              </li>
+              <li>
+                  <input type="checkbox"><span>无法拥抱的恋人</span>
+              </li>
+              <li>
+                  <input type="checkbox"><span>如果这就是爱情</span>
+              </li>
+              <li>
+                  <input type="checkbox"><span>萨瓦迪卡</span>
+              </li>
+          </ul>
+      </div>
+      <div class="panel-footer">
+          <button id="selectAllBtn">全选</button>
+          <button id="canelSelect">取消选中</button>
+          <button id="inverseSelect">反选</button>
+      </div>
+
+  </div>
+<script>
+    var selectAllBtn=document.getElementById("selectAllBtn");
+    var canelSelect=document.getElementById("canelSelect");
+    var inverseSelect=document.getElementById("inverseSelect");
+
+    var inputList=document.getElementsByTagName("input");
+    selectAllBtn.onclick=function(){
+        for(var i=0;i<inputList.length;i++){
+           inputList[i].checked=true;
+        }
+    }
+    canelSelect.onclick=function(){
+        for(var i=0;i<inputList.length;i++){
+            if(inputList[i].checked==true){
+                inputList[i].checked=false;
+            }
+        }
+    }
+    inverseSelect.onclick=function(){
+        for(var i=0;i<inputList.length;i++){
+          /*  if(inputList[i].checked==true){
+                inputList[i].checked=false;
+            }else{
+                inputList[i].checked=true;
+            }*/
+            inputList[i].checked=!inputList[i].checked;
+        }
+    }
+
+</script>
+</body>
+</html>

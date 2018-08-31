@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        #box{
+            width:400px;
+            height:400px;
+            margin:100px auto;
+            background-color: orangered;
+            padding:30px;
+            text-align: center;
+        }
+        #top{
+            height:100px;
+            background-color: orange;
+            margin-bottom: 20px;
+            line-height: 100px;
+        }
+        #bottom{
+            height:200px;
+            background-color: orange;
+            line-height: 200px;
+            font-size: 60px;
+        }
+    </style>
+</head>
+<body>
+ <div id="box">
+     <div id="top"></div>
+     <div id="bottom">29</div>
+ </div>
+<script>
+   window.onload=function(){
+       var date=new Date();
+       var year=date.getFullYear();
+       var month=date.getMonth();
+       var day=date.getDate();
+       var week=date.getDay();
+       var weeks=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+       $("top").innerText=year+ "年"+month+"月"+day+"日"+" "+weeks[week]
+   }
+    //抽取公共
+    function $(id) {
+        return typeof id === "string" ? document.getElementById(id) : null;
+    }
+</script>
+</body>
+</html>

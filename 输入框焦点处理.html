@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #username.focus{
+        width:300px;
+        height:100px;
+        fontSize:20px;
+    }
+</style>
+<body>
+<input type="text" id="username">
+<script>
+    window.onload=function(){
+        var userename=document.getElementById("username");
+        userename.onfocus=function(){
+            userename.setAttribute("class","focus");
+            console.log("sds");
+        }
+        userename.onblur=function(){
+            userename.removeAttribute("class");
+            this.style.color='red';
+        }
+    }
+</script>
+</body>
+</html>
